@@ -1,0 +1,30 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello React</title>
+    </head>
+    <body>
+        <div id="root">
+            <h1>First React page rendering...</h1>
+        </div>
+        
+        <script crossorigin="" src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin="" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> 
+
+        <script>
+            // this has 3 distinct components:
+            const App = React.createElement(
+                // 1st: tells React what element we want to create (the html tags to generate)
+                "h1", 
+
+                // this is an empty bracket that can hold props (might explain in a later practice)
+                {},
+
+                // THIS CAN BE MANY DIFFERENT CHILDREN DEFINED IN ONE STATEMENT (but is holding a single string for the time being).
+                "Our First React page has rendered");
+
+                // need ReactDOM.render to tell the html that we want to render our App component wherever an id = "root" is present.
+            ReactDOM.render(App, document.getElementById("root"));
+        </script>
+    </body>
+</html>
