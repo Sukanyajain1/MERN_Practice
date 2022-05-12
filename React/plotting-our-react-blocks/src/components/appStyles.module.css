@@ -1,0 +1,40 @@
+.danger{
+    background-color: red;
+    border: 5px black;
+    padding: 10px;
+}
+
+.success{
+    background-color: green;
+    border: 5px black;
+}
+
+.purple{
+    background-color: rebeccapurple;
+    border: 5px black;
+}
+
+.warning{
+    background-color: yellow;
+    border: 5px black;
+    text-align: center;
+    width: 70%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.primary{
+    background-color: cornflowerblue;
+    border: 5px black;
+}
+
+.secondary{
+    background-color: grey;
+    border: 5px black;
+    padding: 20px;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-evenly;
+}
