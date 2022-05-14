@@ -1,0 +1,16 @@
+/* .App {
+  text-align: center;
+} */
+
+.box{
+  border: 1px solid grey;
+  width: 250px;
+  height:250px;
+}
+
+.box-list{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
