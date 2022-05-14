@@ -27,8 +27,8 @@ const PetForm = () => {
         
         // use the setPetList setter to update the petList array to have the pet object inside of it
         setPetList([...petList, pet])
-        console.log("pet looks like this--->", pet)
-        console.log("Pet List: ", petList)
+        // console.log("pet looks like this--->", pet)
+        // console.log("Pet List: ", petList)
         
     }
 
@@ -65,7 +65,15 @@ const PetForm = () => {
 
             {
                 petList.map((petObj, idx) =>{
-                    return <h1 key={idx}>{petObj.name}</h1>
+                    return (
+                        <>
+                            <h1 key={idx}>{petObj.name}</h1>
+                            <img src={petObj.profPic} alt="" width = "400px" height = "auto" />
+                            <h3>Super power: {petObj.power}</h3>
+                            <h4>Number of Villains Defeated: {petObj.numWins}</h4>
+                            <hr/>
+                        </>
+                    );
                 })
             }
         </>
