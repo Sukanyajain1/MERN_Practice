@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 
 import PetForm from "./components/PetForm";
 
