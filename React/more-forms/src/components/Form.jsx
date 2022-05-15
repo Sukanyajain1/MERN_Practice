@@ -27,8 +27,8 @@ const Form = props => {
             <form>
                 <div className = 'form-group'>
                     <label htmlFor = ""> First Name: </label>
-                    <input type = "text" onChange = {(e) => setFirstName(e.target.value)} className = "form-control" />
-                    {showFirstNameError()}
+                    <input type = "text" onBlur={(event) => showFirstNameError()} onChange = {(e) => setFirstName(e.target.value)} className = "form-control" />
+                    {/* {showFirstNameError()} */}
                 </div>
                 <div className = 'form-group'>
                     <label className = "mt-3" htmlFor = ""> Last Name: </label>
