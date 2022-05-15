@@ -8,6 +8,7 @@ const PetForm = () => {
     let [profPic, setProfPic] = useState("");
     let [power, setPower] = useState("");
     let [favColor, setFavColor] = useState("");
+    let [retired, setRetired] = useState(false);
     
 
     // create state variable which is an array so that we can store all the pets that are submitted.
@@ -24,7 +25,7 @@ const PetForm = () => {
         
         // every time a pet gets created, we want to package it into an object.
         // create a pet object (python dictionary) -> also called a hashmap
-        let pet = {name, numWins, profPic, power, favColor}
+        let pet = {name, numWins, profPic, power, favColor, retired}
         
         // use the setPetList setter to update the petList array to have the pet object inside of it
         setPetList([...petList, pet])
@@ -38,13 +39,27 @@ const PetForm = () => {
         setProfPic("");
         setPower("");
         setFavColor("");
+        setRetired(false);
         
     }
 
-
-    // const clearState () => {
-    //     return - clear the state (all the variables created in state)
-    // }
+    //  function to toggle if the pet is retired between false and true.
+    const toggleRetired=(e, idx) =>{
+        //  we will modify the petList array at specific index -> idx so that the pet at that index has their "retired" property changed to true/false.
+        
+        
+        // BEST PRACTICE THAT YOU DON'T CHANGE THE INPUT DIRECTLY AND MAKE A COPY INSTEAD
+        // 1. make a copy of petList
+        let [...copyList] = petList;
+        // 2. change the pet at the specific index number property for retirement to true/false
+        // retired?setRetired(false):setRetired(true);
+        // copyList[idx].retired = !copyList[idx].retired;
+        copyList[idx].retired = e.target.checked;
+        // 3. update our state variable for petList with the modified copy
+        setPetList(copyList);
+        console.log("toggling retired button at index number: ", idx);
+        console.log("toggle is:", retired);
+    }
 
     return (
         <>
@@ -80,8 +95,9 @@ const PetForm = () => {
                 {
                     petList.map((petObj, idx) =>{
                         return (
-                                <div className='pet-card' style = {{backgroundColor: petObj.favColor}}>
-                                    <h2 key={idx}>{petObj.name}</h2>
+                                <div key={idx} className='pet-card' style = {{backgroundColor: petObj.favColor}}>
+                                    <h2 style={{textDecoration: petObj.retired?"underline":"none"}}>{petObj.name}</h2>
+                                    <p>Retired: <input type="checkbox" onChange = {(e)=>toggleRetired(e, idx)} name="" id="" /></p>
                                     <p>Number of Villains Defeated: {petObj.numWins}</p>
                                     <img src={petObj.profPic} alt="" width = "250px" height = "250px" />
                                     <h4>Super power: </h4>
