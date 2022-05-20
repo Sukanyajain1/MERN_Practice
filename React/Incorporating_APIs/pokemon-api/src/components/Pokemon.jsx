@@ -16,7 +16,7 @@ const Pokemon = () => {
         axios.get("https://pokeapi.co/api/v2/pokemon")
             .then(convertedResponse => {
                 console.log("get the response ---> ", convertedResponse);
-                setPokemonList(convertedResponse.data.results)
+                // setPokemonList(convertedResponse.data.results)
             })
             .catch(err =>{
                 console.log("SOMETHING WENT WRONG: ", err);
